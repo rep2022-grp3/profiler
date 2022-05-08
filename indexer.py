@@ -25,3 +25,16 @@ print("all of the guests are Asian")
 #modify this later for racial profiling
 
 #determine water volume profile
+#create new variable volumeDemandAsian, multiply occupancyRate with codexAsian, create new csv with hour and volumeDemandAsian
+volumeDemandAsian = occupancyRate * codexAsian
+volumeDemandAsian = pd.DataFrame(volumeDemandAsian)
+volumeDemandAsian.columns = ['volumeDemandAsian']
+volumeDemandAsian['hour'] = hour
+volumeDemandAsian.to_csv(r'C:\Users\tobia\Videos\REP3\profiler\volumeDemandAsian.csv')
+#create new variable volumeDemandAmerican, multiply occupancyRate with codexAmerican, create new csv with hour and volumeDemandAmerican
+volumeDemandAmerican = occupancyRate * codexAmerican
+volumeDemandAmerican = pd.DataFrame(volumeDemandAmerican)
+volumeDemandAmerican.columns = ['volumeDemandAmerican']
+volumeDemandAmerican['hour'] = hour
+volumeDemandAmerican.to_csv(r'C:\Users\tobia\Videos\REP3\profiler\volumeDemandAmerican.csv')
+
