@@ -1,4 +1,3 @@
-from re import U
 import pandas as pd
 import numpy as np
 import os
@@ -12,8 +11,8 @@ maxFlowrateAB = float(3500.0) #liters/30minutes
 codex = pd.read_csv(r'C:\Users\tobia\Videos\REP3\profiler\codex.csv')
 #assign variable codex-hour to first column, codexAmerican to second column, codexAsian to third column
 hour = codex['hour']
-codexAmerican = codex['american']
-codexAsian = codex['asian']
+codexAmerican = codex['indv-rate-american']
+codexAsian = codex['indv-rate-asian']
 
 #variable 1 --> occupants
 #data input
@@ -32,9 +31,14 @@ volumeDemandAsian.columns = ['volumeDemandAsian']
 volumeDemandAsian['hour'] = hour
 volumeDemandAsian.to_csv(r'C:\Users\tobia\Videos\REP3\profiler\volumeDemandAsian.csv')
 #create new variable volumeDemandAmerican, multiply occupancyRate with codexAmerican, create new csv with hour and volumeDemandAmerican
-volumeDemandAmerican = occupancyRate * codexAmerican
-volumeDemandAmerican = pd.DataFrame(volumeDemandAmerican)
-volumeDemandAmerican.columns = ['volumeDemandAmerican']
-volumeDemandAmerican['hour'] = hour
-volumeDemandAmerican.to_csv(r'C:\Users\tobia\Videos\REP3\profiler\volumeDemandAmerican.csv')
+#volumeDemandAmerican = occupancyRate * codexAmerican
+#volumeDemandAmerican = pd.DataFrame(volumeDemandAmerican)
+#volumeDemandAmerican.columns = ['volumeDemandAmerican']
+#volumeDemandAmerican['hour'] = hour
+#volumeDemandAmerican.to_csv(r'C:\Users\tobia\Videos\REP3\profiler\volumeDemandAmerican.csv')
+
+#import volumeDemandAsian.csv as codexNew and create line graph
+codexNew = pd.read_csv(r'C:\Users\tobia\Videos\REP3\profiler\volumeDemandAsian.csv')
+codexNew.plot(x='hour', y='volumeDemandAsian')
+mpl.pyplot.show()
 
