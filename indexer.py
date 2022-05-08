@@ -7,3 +7,5 @@ import matplotlib as mpl
 maxFlowrateSPWH = float(500.0) #liters/30minutes
 maxFlowrateAB = float(3500.0) #liters/30minutes
 
+#load codex.csv
+codex = pd.read_csv(r'C:\Users\tobia\Videos\REP3\profiler\codex.csv')
