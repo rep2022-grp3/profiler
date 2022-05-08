@@ -17,7 +17,7 @@ codexAsian = codex['indv-rate-asian']
 #variable 1 --> occupants
 #data input
 print("insert hotel occupancy rate")
-occupancyRate = float(input())
+occupancyRate = (input())
 print("hotel occupancy rate is", occupancyRate)
 #profile config
 print("all of the guests are Asian")
