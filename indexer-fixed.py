@@ -15,3 +15,15 @@ codexAmerican = codex['indv-rate-american']
 codexAsian = codex['indv-rate-asian']
 #print codex.csv
 print(codex)
+
+#write input variable occupancy rate
+occupancyRate = float(input('Enter occupancy rate: '))
+#print occupancy rate
+print('Occupancy rate is: ' + occupancyRate)
+
+#multiply codexAsian by occupancyRate
+demandAsian = codexAsian * float(occupancyRate)
+#put demandAsian by hour in dataframe
+demandAsianByHour = pd.DataFrame(demandAsian, index=hour, columns=['demand-asian'])
+#print demandAsianByHour
+print(demandAsianByHour)
