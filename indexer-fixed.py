@@ -17,7 +17,7 @@ codexAsian = codex['indv-rate-asian']
 print(codex)
 
 #write input variable occupancy rate
-occupancyRate = float(input('Enter occupancy rate: '))
+occupancyRate = input('Enter occupancy rate: ')
 #print occupancy rate
 print('Occupancy rate is: ' + occupancyRate)
 
