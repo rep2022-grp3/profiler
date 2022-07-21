@@ -21,9 +21,13 @@ occupancyRate = input('Enter occupancy rate: ')
 #print occupancy rate
 print('Occupancy rate is: ' + occupancyRate)
 
-#multiply codexAsian by occupancyRate
-demandAsian = codexAsian * float(occupancyRate)
-#put demandAsian by hour in dataframe
-demandAsianByHour = pd.DataFrame(demandAsian, index=hour, columns=['demand-asian'])
-#print demandAsianByHour
-print(demandAsianByHour)
+#write occupancy rate into a new column in codex.csv
+codex['occupancy-rate'] = occupancyRate
+#print codex.csv
+print(codex)
+
+#save as codex-2.csv
+codex.to_csv(r'C:\Users\tobia\Videos\REP3\profiler\codex-2.csv', index=False)
+#print codex-2.csv
+print(codex)
+
