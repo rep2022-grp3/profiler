@@ -59,6 +59,12 @@ print(codex2)
 #print sumCodex2AsianDemand
 print('Predicted demand for hot water today is: ' + str(sumCodex2AsianDemand) + ' liters')
 
+#determine volume load for SPWH
+#create variable codex2-volume-load-SPWH
+codex2VolumeLoadSPWH = codex2['demand-Asian']
+#write codex2VolumeLoadSPWH into a new column in codex-2.csv
+codex2['volume-load-SPWH'] = codex2VolumeLoadSPWH
+
 #input depending variable: weather and boiler availability
 #load weather-scrape.xlsx
 weatherScrape = pd.read_excel(r'C:\Users\tobia\Videos\REP3\profiler\weather-scrape.xlsx')
@@ -71,6 +77,20 @@ spwhAvailability = weatherScrape['spwh_available']
 #combine weatherAvailability and spwhAvailability into a new columns in codex-2.csv
 codex2['weather-availability'] = weatherAvailability
 codex2['spwh-availability'] = spwhAvailability
-#print codex-2.csv
-print(codex2)
 
+#if weather-availability is 1 and spwh-availability is 1, then real_volumeLoadSPWH is equal to volume-load-SPWH
+real_volumeLoadSPWH = codex2['volume-load-SPWH'] * codex2['weather-availability'] * codex2['spwh-availability']
+#write real_volumeLoadSPWH into a new column in codex-2.csv
+codex2['real-volume-load-SPWH'] = real_volumeLoadSPWH
+
+#if real-volume-load-SPWH is 0, then real_volumeLoadAB is equal to volume-load-SPWH
+#real_volumeLoadAB 
+
+#create sum of real_volumeLoadSPWH
+sumRealVolumeLoadSPWH = codex2['real-volume-load-SPWH'].sum()
+#simplify 2 digits after decimal point
+sumRealVolumeLoadSPWH = round(sumRealVolumeLoadSPWH, 2)
+
+#print codex-2.csv and sumRealVolumeLoadSPWH
+print(codex2)
+print('Total load for SPWH today is: ' + str(sumRealVolumeLoadSPWH) + ' liters')
