@@ -49,14 +49,28 @@ sumCodex2AsianDemand = codex2['demand-Asian'].sum()
 sumCodex2AsianDemand = round(sumCodex2AsianDemand, 2)
 #write maxFlowrateSPWH into a new column in codex-2.csv
 codex2['max-flowrate-SPWH'] = maxFlowrateSPWH
+#add time conversion to codex-2.csv
+#multiply hour by 1800 to convert to seconds
+codex2Second = codex2Hour * 3600
+#add codex2Second to codex2.csv
+codex2['second'] = codex2Second
 #print codex-2.csv
 print(codex2)
 #print sumCodex2AsianDemand
 print('Predicted demand for hot water today is: ' + str(sumCodex2AsianDemand) + ' liters')
 
+#input depending variable: weather and boiler availability
 #load weather-scrape.xlsx
 weatherScrape = pd.read_excel(r'C:\Users\tobia\Videos\REP3\profiler\weather-scrape.xlsx')
 #print weather-scrape.xlsx
 print('This is weather-scrape.xlsx: ')
 print(weatherScrape)
+#assign variable weatherAvailability to the second column, spwhAvailability to the third column
+weatherAvailability = weatherScrape['weather']
+spwhAvailability = weatherScrape['spwh_available']
+#combine weatherAvailability and spwhAvailability into a new columns in codex-2.csv
+codex2['weather-availability'] = weatherAvailability
+codex2['spwh-availability'] = spwhAvailability
+#print codex-2.csv
+print(codex2)
 
