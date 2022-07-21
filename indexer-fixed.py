@@ -95,5 +95,5 @@ sumRealVolumeLoadSPWH = round(sumRealVolumeLoadSPWH, 2)
 #print codex-2.csv and sumRealVolumeLoadSPWH
 print(codex2)
 print('Total load for SPWH today is: ' + str(sumRealVolumeLoadSPWH) + ' liters')
-#save as codex-3-instructions.csv
-codex2.to_csv(r'C:\Users\tobia\Videos\REP3\profiler\codex-3-instructions.csv', index=False)
+#save as codex-3-instructions.xlsx
+codex2.to_excel(r'C:\Users\tobia\Videos\REP3\profiler\codex-3-instructions.xlsx', index=False)
