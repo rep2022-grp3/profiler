@@ -7,7 +7,7 @@ import matplotlib as mpl
 #hotel limit index
 maxFlowrateSPWH = float(500.0) #liters/30minutes
 maxFlowrateAB = float(3500.0) #liters/30minutes
-#load codex.csv
+#load codex.csv [codex is sourced from RapidMiner hourly indexer]
 codex = pd.read_csv(r'C:\Users\tobia\Videos\REP3\profiler\codex.csv')
 #assign variable codex-hour to first column, codexAmerican to second column, codexAsian to third column
 hour = codex['hour']
@@ -47,6 +47,16 @@ print(codex2)
 sumCodex2AsianDemand = codex2['demand-Asian'].sum()
 #simplify 2 digits after decimal point
 sumCodex2AsianDemand = round(sumCodex2AsianDemand, 2)
+#write maxFlowrateSPWH into a new column in codex-2.csv
+codex2['max-flowrate-SPWH'] = maxFlowrateSPWH
+#print codex-2.csv
+print(codex2)
 #print sumCodex2AsianDemand
 print('Predicted demand for hot water today is: ' + str(sumCodex2AsianDemand) + ' liters')
+
+#load weather-scrape.xlsx
+weatherScrape = pd.read_excel(r'C:\Users\tobia\Videos\REP3\profiler\weather-scrape.xlsx')
+#print weather-scrape.xlsx
+print('This is weather-scrape.xlsx: ')
+print(weatherScrape)
 
