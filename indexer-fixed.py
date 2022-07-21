@@ -45,7 +45,6 @@ codex2['demand-Asian'] = codex2AsianDemand
 print(codex2)
 #calculate the sum of codex2AsianDemand
 sumCodex2AsianDemand = codex2['demand-Asian'].sum()
-#simplify 2 digits after decimal point
 sumCodex2AsianDemand = round(sumCodex2AsianDemand, 2)
 #write maxFlowrateSPWH into a new column in codex-2.csv
 codex2['max-flowrate-SPWH'] = maxFlowrateSPWH
@@ -89,11 +88,14 @@ codex2['real-volume-load-AB'] = real_volumeLoadAB
 
 #create sum of real_volumeLoadSPWH
 sumRealVolumeLoadSPWH = codex2['real-volume-load-SPWH'].sum()
-#simplify 2 digits after decimal point
 sumRealVolumeLoadSPWH = round(sumRealVolumeLoadSPWH, 2)
+#create sum of real_volumeLoadAB
+sumRealVolumeLoadAB = codex2['real-volume-load-AB'].sum()
+sumRealVolumeLoadAB = round(sumRealVolumeLoadAB, 2)
 
 #print codex-2.csv and sumRealVolumeLoadSPWH
 print(codex2)
 print('Total load for SPWH today is: ' + str(sumRealVolumeLoadSPWH) + ' liters')
+print('Total load for AB today is: ' + str(sumRealVolumeLoadAB) + ' liters')
 #save as codex-3-instructions.xlsx
 codex2.to_excel(r'C:\Users\tobia\Videos\REP3\profiler\codex-3-instructions.xlsx', index=False)
