@@ -82,9 +82,10 @@ codex2['spwh-availability'] = spwhAvailability
 real_volumeLoadSPWH = codex2['volume-load-SPWH'] * codex2['weather-availability'] * codex2['spwh-availability']
 #write real_volumeLoadSPWH into a new column in codex-2.csv
 codex2['real-volume-load-SPWH'] = real_volumeLoadSPWH
-
-#if real-volume-load-SPWH is 0, then real_volumeLoadAB is equal to volume-load-SPWH
-#real_volumeLoadAB 
+#if weather-availability is 0 or spwh-availability is 0, then real_volumeLoadAB is equal to volume-load-SPWH
+real_volumeLoadAB = codex2['volume-load-SPWH'] - codex2['real-volume-load-SPWH']
+#write real_volumeLoadAB into a new column in codex-2.csv
+codex2['real-volume-load-AB'] = real_volumeLoadAB
 
 #create sum of real_volumeLoadSPWH
 sumRealVolumeLoadSPWH = codex2['real-volume-load-SPWH'].sum()
@@ -94,3 +95,5 @@ sumRealVolumeLoadSPWH = round(sumRealVolumeLoadSPWH, 2)
 #print codex-2.csv and sumRealVolumeLoadSPWH
 print(codex2)
 print('Total load for SPWH today is: ' + str(sumRealVolumeLoadSPWH) + ' liters')
+#save as codex-3-instructions.csv
+codex2.to_csv(r'C:\Users\tobia\Videos\REP3\profiler\codex-3-instructions.csv', index=False)
