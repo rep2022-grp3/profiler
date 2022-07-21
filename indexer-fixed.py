@@ -5,7 +5,7 @@ import matplotlib as mpl
 
 #setup baseline
 #hotel limit index
-maxFlowrateSPWH = float(500.0) #liters/30minutes
+maxFlowrateSPWH = float(1000.0) #liters/30minutes
 maxFlowrateAB = float(3500.0) #liters/30minutes
 #load codex.csv [codex is sourced from RapidMiner hourly indexer]
 codex = pd.read_csv(r'C:\Users\tobia\Videos\REP3\profiler\codex.csv')
