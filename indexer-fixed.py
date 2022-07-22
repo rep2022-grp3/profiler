@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
-import matplotlib as mpl
+import matplotlib
 
 #setup baseline
 #hotel limit index
@@ -13,16 +13,12 @@ codex = pd.read_csv(r'C:\Users\tobia\Videos\REP3\profiler\codex.csv')
 hour = codex['hour']
 codexAmerican = codex['indv-rate-american']
 codexAsian = codex['indv-rate-asian']
-#print codex.csv
-print(codex)
 #write input variable occupancy rate
 occupancyRate = input('Enter occupancy rate: ')
 #print occupancy rate
 print('Occupancy rate is: ' + occupancyRate)
 #write occupancy rate into a new column in codex.csv
 codex['occupancy-rate'] = occupancyRate
-#print codex.csv
-print(codex)
 #save as codex-2.csv
 codex.to_csv(r'C:\Users\tobia\Videos\REP3\profiler\codex-2.csv', index=False)
 #load codex-2.csv
