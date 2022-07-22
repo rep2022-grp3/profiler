@@ -13,6 +13,9 @@ codex = pd.read_csv(r'C:\Users\tobia\Videos\REP3\profiler\codex.csv')
 hour = codex['hour']
 codexAmerican = codex['indv-rate-american']
 codexAsian = codex['indv-rate-asian']
+#print baseline
+print('N Hotel, Kyoto')
+print('SPWH-AB Water Management')
 #write input variable occupancy rate
 occupancyRate = input('Enter occupancy rate: ')
 #print occupancy rate
